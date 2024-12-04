@@ -1,3 +1,6 @@
+//throughout the code be careful with the control trasfer instruction, because we use the line number to jump from on location to the other, any wrong entery would make the result wrong.
+// comment using ; 
+
 mov [0000],72H 
 mov al,[0000]          
 mov dl,al      result 48 for ip:72
