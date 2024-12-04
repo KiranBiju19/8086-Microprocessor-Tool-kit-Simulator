@@ -1,5 +1,6 @@
 //throughout the code be careful with the control trasfer instruction, because we use the line number to jump from on location to the other, any wrong entery would make the result wrong.
 // comment using ; 
+// no need of using # for immedaite addressing modes, initially i have used # in this instructions but i have changed it. using # will not work.
 
 mov [0000],72H 
 mov al,[0000]          
@@ -193,9 +194,9 @@ add al, dl
 mov [bx+1],al
 hlt
 
-mov ax,#1234
-mov bx,#000b
-mov cx,#0000
+mov ax, 1234h
+mov bx, 000bh
+mov cx, 0000h
 sub bx,ax
 jnc l1
 
@@ -207,9 +208,9 @@ mov [0001],ax
 l1:mov 0011,cx
 hlt
 
-mov ax,#A3F1
-mov bx,#1F00
-mov cx,#0000
+mov ax,a3F1h
+mov bx, 1F00h
+mov cx, 0000h
 inc cx
 mov [0001],ax
 mov [0002],cx
@@ -217,106 +218,105 @@ rcl [0001]
 hlt
 
 
-mov ax,#ffff
+mov ax, ffffh
 mov dx,ax
-and dx,#ffff
-and ax,#0000
-mov cx,#0004
+and dx, ffffh
+and ax, 0000h
+mov cx, 0004h
 rol ax
 add ax,dx
-mov bx,#000A
+mov bx, 000Ah
 mov [0001],ax
 mov [0080],bx
 hlt
 
-mov ax, #25         
-mov bx, #10
+mov ax,  25h         
+mov bx,  10h
 add ax, bx 
-sub bx, #5
-ror bx, #1
+sub bx,  5h
+ror bx,  1h
 and ax, bx
 mov cx, [100]       
 xchg ax, dx        
 adc ax, bx
 sbb bx, ax
-rol ax, #2
-ror bx, #3
+rol ax, 2h
+ror bx,  3h
 
 
 
-mov cx, #15
+mov cx,  15h
 dec cx
-ror cx, #1
-mov ax, #20
-add ax, #5 
+ror cx,  1h
+mov ax,  20h
+add ax,  5h 
 and ax, cx 
-jc      
-mov bx, #50
-SHORT_LABEL:
-add bx, #100
+jc     8 
+mov bx,  50h   ;SHORT_LABEL:
+add bx,  100h
 mov dx, [200]
 xchg bx, cx
 
 
 
-mov ax, #7         
+mov ax,  7h         
 push ax 
 pop bx  
-ror ax, #2 
-mov bx, #30
+ror ax,  2h 
+mov bx,  30h
 xchg ax, bx
 add ax, bx 
 jnb 76
 dec bx
-sub bx, #10
+sub bx,  10h
 adc ax, bx
-ror ax, #3 
+ror ax,  3h 
 
 
 
-mov ax, #20 
-mov bx, #15
+mov ax,  20h 
+mov bx,  15h
 add ax, bx
-ror bx, #1 
+ror bx,  1h 
 xchg ax, bx
-mov dx, #10        
+mov dx, 10h        
 sub bx, dx 
 adc ax, bx 
-mov cx, #5       
+mov cx,  5h       
 xchg cx, bx 
 and ax, bx     
-ror bx, #2
+ror bx, 2h
 
 
-mov ax, #03
+mov ax,  03h
 mov [0002],ax
-sub ax, #1  
+sub ax,  1h  
 jnc 2
 mov [0001],ax  
 
-mov ax, #fffe
+mov ax,  fffeh
 mov [0002],ax
-add ax, #1  
+add ax, 001h  
 jnc 2
 mov [0001],ax 
 
 
-mov ax, #fffe
-mov cx, #03
+mov ax,  fffeh
+mov cx,  03h
 mov [0002],ax
 div cx
 mov [0001],ax 
 
 
-mov cx,#64
-mov ax, #0000
-mov [ax],#0001
+mov cx,64h
+mov ax, 0000h
+mov [ax],0001h
 inc ax
 loop 3
 hlt
 
-mov ax, #fffe 		 ;testing        //commenting succesful
-mov cx, #0e         ;testing
+mov ax, fffeh		 ;testing        //commenting succesful
+mov cx, 0eH         ;testing
 mov [0002],ax               ;testing
 div cx      ;testing
 mov [0001],ax       ;testing
