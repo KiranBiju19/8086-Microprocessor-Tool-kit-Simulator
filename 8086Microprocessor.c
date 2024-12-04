@@ -2455,7 +2455,7 @@ int main()
     
     
     int col;
-    printf("Enter the memory size you want to see:\t");
+    printf("\n\n\tEnter the memory size you want to see:\t");
     scanf("%d",&col);
     if(col>MAX)
     {
