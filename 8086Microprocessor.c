@@ -2453,9 +2453,7 @@ int main()
     printf("\nAH:%02lX\tBH:%02lX\tCH:%02lX\tDH:%02lX",AH,BH,CH,DH);
     printf("\nAX:%04lX\tBX:%04lX\tCX:%04lX\tDX:%04lX",AX,BX,CX,DX);
     
-    printf("\n\t\t1\t|\t2\t|");
     
-    printf("\n-----------------------------------------\n");
     int col;
     printf("Enter the memory size you want to see:\t");
     scanf("%d",&col);
@@ -2464,6 +2462,9 @@ int main()
       printf("\tSize too much\tAdjusting it to 25");
       col=25;
     }
+    printf("\n\t\t1\t|\t2\t|");
+    
+    printf("\n-----------------------------------------\n");
     for(int j=0;j<col;j++) // rows
     {
         printf(" %d\t|\t",j*2);
