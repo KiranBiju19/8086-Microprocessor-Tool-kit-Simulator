@@ -1,0 +1,320 @@
+mov [0000],72H 
+mov al,[0000]          
+mov dl,al      result 48 for ip:72
+and dl,0fH
+and al,f0H
+mov cl,0004H
+ror al,cl      // bcd to binary
+mov [0002],al 
+mov dh,0aH 
+mul dh
+mov [0004],al 
+add al,dl 
+mov [0006],al 
+hlt
+
+mov [0000],1111H
+mov [0002],1111H
+mov [0004],1111H
+mov [0006],1111H
+mov [0008],1111H
+mov [0010],2222H
+mov [0012],2222H
+mov [0014],2222H
+mov [0016],2222H
+mov cx,0000H
+mov dx,0005H 
+clc
+mov si,0000H
+mov di,0010H
+mov bx,0020H
+mov ax,[si]   ;l1
+adc ax,[di]
+mov [bx],ax
+inc si 
+inc si
+inc di 
+inc di 
+inc bx 
+inc bx
+dec dx
+jnz 16
+jnc 29  ;l2
+inc cx 
+mov [0028],cx 
+hlt
+
+mov [0000],0042H
+mov al,[0000]
+sub al,30H
+cmp al,0aH            ;       //ascii to hex
+jc 7           
+sub al,07H
+mov [0002],al
+hlt
+
+mov [0000],ffHh
+mov al,[0000]
+mov dl,00H
+cmp al,64H                  
+jc 9                    ;i/p : ffh
+sub al,64H               ;result=02 05 05
+inc bl                  
+jmp 4                       
+cmp al,0aH         ; binary to bcd
+jc 14
+sub al,0aH
+inc dl
+jmp 9
+mov [0002],bl 
+mov [0003],dl 
+mov [0004],al 
+hlt
+
+mov [0000],3322H
+mov ax,[0000]
+mov [0004],1122H
+mov si,0004H
+add ax,[si]
+sub ax,[si]
+hlt
+
+
+mov [0000],0BH
+mov al,[0000]
+cmp al,0aH
+jc 6             //hex to ascii
+add al,07H        result=42
+add al,30H
+mov [0002],al
+hlt
+
+
+mov ax,1234H
+add ax,0022H
+jnc l1
+mov bx,33H 
+l1
+mov [0000],ax
+hlt
+
+mov al,12F
+mov bl,ffF
+cmp al,ffF
+hlt
+
+mov [0000],#7232
+mov ax,[0000] 
+mov bl,#2
+div bl
+hlt
+
+mov [0000],#1234
+mov [0002],#2244              0111 0010
+mov si,[0000]
+mov [0010],[si] 
+inc si
+inc si
+mov [0012],[si]
+hlt
+
+mov ax,#1001
+mov bx,#0110
+add ah,bh
+add al,#10
+mov [0000],#2345
+add al,[0000]
+hlt
+
+mov ax,#1001
+mov cx,#0110
+mov [0000],#0110
+add ax,cx
+mov ah,#55
+mov [0004],#1234
+mov [0006],ah
+hlt
+
+mov ah,#12
+mov ax,#220e
+mov [0003],ax
+mov [0010],#1234
+mov bx,#1234
+mov ch,ah 
+mov ax,#0022
+mov [ax],bx
+mov [dx],#0001
+hlt
+
+mov cx,#0000
+mov [0001],#ffff
+mov [0002],#03
+mov ax,[0001]
+adc ax,[0002]
+jnc 8
+inc cx
+mov [0003],ax
+mov [0004],cx
+hlt 
+
+mov cx,#6
+mov dx,#ffff
+mov ax, #0000
+mov [ax],dx
+inc ax
+inc dx
+loop 4
+mov [0011],#333
+mov ah,#11
+mov al,#12
+hlt
+
+mov cx,#6
+mov ax, #0000
+mov [ax],#0001
+inc ax
+loop 3
+hlt
+
+
+
+mov bx,1100
+mov al,[bx]
+mov dl,al
+and dl,#0f
+mov cl,#0004
+ror al,cl
+mov dh,#0a 
+mul dh
+add al, dl 
+mov [bx+1],al
+hlt
+
+mov ax,#1234
+mov bx,#000b
+mov cx,#0000
+sub bx,ax
+jnc l1
+
+jnc 9
+xchg ax,bx
+xchg bx,[0004]
+inc cx
+mov [0001],ax
+l1:mov 0011,cx
+hlt
+
+mov ax,#A3F1
+mov bx,#1F00
+mov cx,#0000
+inc cx
+mov [0001],ax
+mov [0002],cx
+rcl [0001]
+hlt
+
+
+mov ax,#ffff
+mov dx,ax
+and dx,#ffff
+and ax,#0000
+mov cx,#0004
+rol ax
+add ax,dx
+mov bx,#000A
+mov [0001],ax
+mov [0080],bx
+hlt
+
+mov ax, #25         
+mov bx, #10
+add ax, bx 
+sub bx, #5
+ror bx, #1
+and ax, bx
+mov cx, [100]       
+xchg ax, dx        
+adc ax, bx
+sbb bx, ax
+rol ax, #2
+ror bx, #3
+
+
+
+mov cx, #15
+dec cx
+ror cx, #1
+mov ax, #20
+add ax, #5 
+and ax, cx 
+jc      
+mov bx, #50
+SHORT_LABEL:
+add bx, #100
+mov dx, [200]
+xchg bx, cx
+
+
+
+mov ax, #7         
+push ax 
+pop bx  
+ror ax, #2 
+mov bx, #30
+xchg ax, bx
+add ax, bx 
+jnb 76
+dec bx
+sub bx, #10
+adc ax, bx
+ror ax, #3 
+
+
+
+mov ax, #20 
+mov bx, #15
+add ax, bx
+ror bx, #1 
+xchg ax, bx
+mov dx, #10        
+sub bx, dx 
+adc ax, bx 
+mov cx, #5       
+xchg cx, bx 
+and ax, bx     
+ror bx, #2
+
+
+mov ax, #03
+mov [0002],ax
+sub ax, #1  
+jnc 2
+mov [0001],ax  
+
+mov ax, #fffe
+mov [0002],ax
+add ax, #1  
+jnc 2
+mov [0001],ax 
+
+
+mov ax, #fffe
+mov cx, #03
+mov [0002],ax
+div cx
+mov [0001],ax 
+
+
+mov cx,#64
+mov ax, #0000
+mov [ax],#0001
+inc ax
+loop 3
+hlt
+
+mov ax, #fffe 		 ;testing        //commenting succesful
+mov cx, #0e         ;testing
+mov [0002],ax               ;testing
+div cx      ;testing
+mov [0001],ax       ;testing
+hlt     ;testing
