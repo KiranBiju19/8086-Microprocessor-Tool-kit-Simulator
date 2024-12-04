@@ -176,6 +176,4 @@ Improving Flag Handling: Update flags in each operation as per 8086 behavior.
 
 Contributions are welcome! Feel free to open issues or submit pull requests to improve the simulator. Feel free to connect me for any doubts
 
-License
 
-This project is licensed under the MIT License.
