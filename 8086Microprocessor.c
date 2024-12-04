@@ -2050,11 +2050,11 @@ OF (Overflow Flag) is affected in specific cases, such as ROR and ROL, when the 
         {
             if(checkregX(arg2)) 
             {
-               
+               //update soon
             }
             else if(arg2[0]=='#')
             {
-               
+               //update soon
             }
             else
             {
@@ -2098,29 +2098,19 @@ OF (Overflow Flag) is affected in specific cases, such as ROR and ROL, when the 
     
     else if(strcmp(token,"XOR")==0)
     {
-        
+        CF=0;//   rest will be updated soon
     }
     
 }
 
 // Control Transfer Instruction
 void control_transfer(char *token,char *arg1, char *arg2)
-{
-    //int cc=5;   
+{   
     if(strcmp(token,"JNC")==0 || strcmp(token,"JNB")==0)
     {
         value=strtol(arg1,NULL,10);
         if(CF!=1)
         {
-            // while(cc!=0)
-            // {
-            //     if (fgets(instruction, sizeof(instruction), fp) == NULL) 
-            //     {
-            //         rewind(fp);
-            //     }
-            //     else if(strcmp(instruction,arg1)==0)
-            //         break;
-            // }
             if(lc<value)
             {   
                 while(lc<value-1)
