@@ -506,12 +506,7 @@ void data_transfer(char *token,char *arg1, char *arg2)
                     printf("\nMemoryout of bound"); 
                     exit(0);
                 }
-                
-                printf("\t%04lX",AX);
-                printf("\t%04lX",BX);
-                
-                printf("\t%04lX",value);
-                printf("\t%ld",value);
+              
                 
                 if (strcmp(arg2, "BX") == 0){ memory[value]= BX&0xFF; memory[value+1] = (BX >> 8) & 0xFF;}
                 else if (strcmp(arg2, "CX") == 0){ memory[value]=CX&0xFF; memory[value+1] = (CX >> 8) & 0xFF;}
