@@ -2477,12 +2477,12 @@ int main()
     }
     printf("------------------------------------------\n");
  
-    printf("\nOF\tDF\tIF\tTF\tSF\tZF\tAF\tPF\tCF");
-    printf("\n%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",OF,DF,IF,TF,SF,ZF,AF,PF,CF);
+    //printf("\nOF\tDF\tIF\tTF\tSF\tZF\tAF\tPF\tCF");
+    //printf("\n%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",OF,DF,IF,TF,SF,ZF,AF,PF,CF);
     
-    printf("Stack: \n");
-    for(int i=0;i<10;i++)
-        printf("%d | ",stack[i]);
+    //printf("Stack: \n");
+    //for(int i=0;i<10;i++)
+     //   printf("%d | ",stack[i]);
     
     fclose(fp); 
     
