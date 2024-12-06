@@ -107,14 +107,14 @@ mov bl,ffF
 cmp al,ffF
 hlt
 
-mov [0000],#7232
+mov [0000],7232H
 mov ax,[0000] 
 mov bl,#2
 div bl
 hlt
 
-mov [0000],#1234
-mov [0002],#2244              0111 0010
+mov [0000],1234h      ;comment line
+mov [0002],2244h             ; 0111 0010
 mov si,[0000]
 mov [0010],[si] 
 inc si
@@ -122,37 +122,37 @@ inc si
 mov [0012],[si]
 hlt
 
-mov ax,#1001
-mov bx,#0110
+mov ax, 1001H
+mov bx, 0110H
 add ah,bh
-add al,#10
-mov [0000],#2345
+add al,10H
+mov [0000],2345H
 add al,[0000]
 hlt
 
-mov ax,#1001
-mov cx,#0110
-mov [0000],#0110
+mov ax,1001H
+mov cx,0110h
+mov [0000], 0110h
 add ax,cx
-mov ah,#55
-mov [0004],#1234
+mov ah, 55h
+mov [0004], 1234h
 mov [0006],ah
 hlt
 
-mov ah,#12
-mov ax,#220e
+mov ah,12h
+mov ax, 220eh
 mov [0003],ax
-mov [0010],#1234
-mov bx,#1234
+mov [0010], 1234h
+mov bx, 1234h
 mov ch,ah 
-mov ax,#0022
+mov ax, 0022h
 mov [ax],bx
-mov [dx],#0001
+mov [dx], 0001h
 hlt
 
-mov cx,#0000
-mov [0001],#ffff
-mov [0002],#03
+mov cx, 0000h
+mov [0001], ffffh
+mov [0002], 03h
 mov ax,[0001]
 adc ax,[0002]
 jnc 8
@@ -161,21 +161,21 @@ mov [0003],ax
 mov [0004],cx
 hlt 
 
-mov cx,#6
-mov dx,#ffff
-mov ax, #0000
+mov cx, 6h
+mov dx, ffffh
+mov ax,  0000h
 mov [ax],dx
 inc ax
 inc dx
 loop 4
-mov [0011],#333
-mov ah,#11
-mov al,#12
+mov [0011], 333h
+mov ah, 11h
+mov al, 12h
 hlt
 
-mov cx,#6
-mov ax, #0000
-mov [ax],#0001
+mov cx, 6h
+mov ax, 0000h
+mov [ax], 0001h
 inc ax
 loop 3
 hlt
@@ -185,10 +185,10 @@ hlt
 mov bx,1100
 mov al,[bx]
 mov dl,al
-and dl,#0f
-mov cl,#0004
+and dl, 0fh
+mov cl, 0004h
 ror al,cl
-mov dh,#0a 
+mov dh, 0ah 
 mul dh
 add al, dl 
 mov [bx+1],al
