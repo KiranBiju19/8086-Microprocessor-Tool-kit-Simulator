@@ -36,8 +36,8 @@ Prerequisites
 
 Clone the repository:
 
-    git clone https://github.com/your-username/8086-simulator.git
-
+    git clone https://github.com/KiranBiju19/8086-Microprocessor-Tool-kit-Simulator.git
+    
 Navigate to the project directory:
 
     cd 8086-simulator
